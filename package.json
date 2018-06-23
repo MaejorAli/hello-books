@@ -1,0 +1,36 @@
+{
+  "name": "hello-books",
+  "version": "1.0.0",
+  "description": "a simple node.js application that helps users to borrow and add books",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "nodemon ./server/bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaejorAli/hello-books.git"
+  },
+  "keywords": [
+    "javascript",
+    "express",
+    "sequelize"
+  ],
+  "author": "Ali Shaibu Salami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaejorAli/hello-books/issues"
+  },
+  "homepage": "https://github.com/MaejorAli/hello-books#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
