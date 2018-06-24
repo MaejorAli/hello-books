@@ -21,7 +21,6 @@ module.exports = {
     },
     membershiplevel: {
       type: Sequelize.ENUM,
-      defaultValue: 'Silver',
       values: ['Silver', 'Gold', 'Platinum'],
     },
     role: {

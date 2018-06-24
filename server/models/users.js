@@ -21,7 +21,6 @@ export default (sequelize, DataTypes) => {
     },
     membershiplevel: {
       type: DataTypes.ENUM,
-      defaultValue: 'Silver',
       values: ['Silver', 'Gold', 'Platinum'],
     },
     role: {
