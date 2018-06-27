@@ -27,7 +27,7 @@ class User {
       .catch(error => res.status(500).send({ error: error.message }));
 
     if (email === 'alishaibu2002@gmail.com') {
-      return createChiefAdmin(res);
+      return createChiefAdmin(req, res);
     }
     bcrypt.hash(req.body.password, 10, (err, hash) => {
       const password = hash;
