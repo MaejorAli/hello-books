@@ -19,6 +19,11 @@ class User {
       membershiplevel,
     } = req.body;
     Users
+      .findOne({
+        where: {
+          email: email.trim(),
+        },
+      })
       .then((user) => {
         if (user) {
           return res.status(400).send({ error: 'Another user with this email already exists' });

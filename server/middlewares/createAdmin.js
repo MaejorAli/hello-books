@@ -14,6 +14,13 @@ function createChiefAdmin(req, res) {
         email: 'alishaibu2002@gmail.com',
       },
     })
+      .then((user) => {
+        if (user) {
+          return res.status(400).send({ error: 'Another user with this email already exists' });
+        }
+      })
+      .catch(error => res.status(500).send({ error: error.message }));
+    Users
       .create({
         email: 'alishaibu2002@gmail.com',
         firstname: 'Ali',
