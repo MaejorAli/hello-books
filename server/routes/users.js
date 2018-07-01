@@ -6,4 +6,5 @@ export default (app) => {
     res.status(200).send({ message: 'Welcome to the hello-books Api' });
   });
   app.post('/api/v1/users/signup', userController.signup);
+  app.post('/api/v1/users/signin', userController.signin);
 };

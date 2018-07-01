@@ -59,6 +59,42 @@ class User {
         .catch(error => res.status(500).send({ error: error.message }));
     });
   }
+
+
+  static signin(req, res) {
+    const {
+      email,
+      password,
+    } = req.body;
+
+    return Users
+      .findOne({
+        where: {
+          email: email.trim(),
+        },
+      })
+      .then((user) => {
+        if (!user) {
+          return res.status(400).send({ error: 'Invalid password or email' });
+        }
+        return bcrypt.compare(password, user.password, (err, response) => {
+          if (response) {
+            const payload = {
+              userId: user.id,
+              firstname: user.firstname,
+              lastname: user.lastname,
+              role: user.role,
+            };
+            const token = jwt.sign(payload, secret, {
+              expiresIn: '100h', // expires in 1 hours
+            });
+            return res.status(200).send({ message: 'You have been logged in successfully ', token });
+          }
+          return res.status(400).send({ error: 'Invalid password or email' });
+        });
+      })
+      .catch(error => res.status(500).send({ error: error.message }));
+  }
 }
 
 export default User;
