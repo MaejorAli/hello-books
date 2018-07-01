@@ -26,7 +26,7 @@ class User {
       })
       .then((user) => {
         if (user) {
-          return res.status(400).send({ error: 'Another user with this email already exists' });
+          return res.status(400).send({ error: ' This email is being used by another user' });
         }
       })
       .catch(error => res.status(500).send({ error: error.message }));
@@ -54,7 +54,7 @@ class User {
           const token = jwt.sign(payload, secret, {
             expiresIn: '100h', // expires in 1 hours
           });
-          return res.status(201).send({ message: 'You have successfully signed up', token });
+          return res.status(201).send({ message: 'You have signed up successfully ', token });
         })
         .catch(error => res.status(500).send({ error: error.message }));
     });
